@@ -1,0 +1,641 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    margin: 5px 3px;
+    overflow: hidden;
+}
+
+.sideBar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #a2a2a2;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+}
+
+.pages a:hover {
+    color: #fff;
+    transition: color 300ms ease-in;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+.outer {
+    display: flex;
+}
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    width: 27%;
+}
+
+.pages {
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    border-radius: 10px;
+}
+
+.home, .search {
+    padding: 5px 30px;
+    height: 7vh;
+}
+
+.icon {
+    scale: 1.4;
+    width: 30px;
+}
+
+.library {
+    height: 71vh;
+    background-color: #121212;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 15px 5px 0px 15px;
+}
+
+.top a {
+    fill: #a2a2a2;
+}
+
+.top svg {
+    margin-right: 10px;
+}
+
+.library .top a:hover {
+    color: #fff;
+    fill: #fff;
+    transition: fill 300ms ease-out, color 300ms ease-out;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.top i {
+    scale: 1.3;
+    margin: 0px 10px;
+    padding: 5px;
+    color: #a2a2a2;
+    cursor: pointer;
+}
+
+.top i:hover {
+    border-radius: 100%;
+    color: #fff;
+    background-color: #a2a2a222;
+}
+
+.sort {
+    display: flex;
+    padding: 10px 0px;
+}
+
+.sort button {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ffffff12;
+    padding: 8px 10px;
+    border-radius: 34px;
+    margin: 0px 2px;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.sort button:hover {
+    background-color: #2a2a2a;
+}
+
+.bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.bar #libSearchButton {
+    cursor: pointer;
+    scale: 0.8;
+    padding: 10px 3px;
+}
+
+.bar #libSearchButton:hover {
+    background-color: #2a2a2a;
+    border-radius: 100%;
+}
+
+.bar input[type="text"] {
+    background-color: #2a2a2a;
+    color: #a2a2a2;
+    font-weight: bold;
+    border: none;
+    padding: 5px 0px;
+    border-radius: 5px;
+    width: 0px;
+    transition: width 300ms ease-out, padding 300ms ease-out;
+}
+
+.bar input[type="text"]::placeholder {
+    font-weight: bold;
+    color: #a2a2a2;
+}
+
+.bar button {
+    font-weight: bold;
+    cursor: pointer;
+    color: #a2a2a2;
+    transition: color,fill 300ms ease-in;
+}
+
+.bar button:hover {
+    color: #fff;
+}
+
+.playlist {
+    display: flex;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 10px 0px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.playlist:hover {
+    background-color: #1f1f1f;
+}
+
+.playlist img {
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.playlist a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.playlist .name {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.playlist .about {
+    font-size: 12px;
+}
+
+.playlist .about i {
+    scale: 0.35;
+}
+
+.playlistGroup {
+    overflow-y: scroll;
+    height: 56vh;
+}
+
+.playlistGroup::-webkit-scrollbar {
+    width: 10px;
+}
+
+.playlistGroup::-webkit-scrollbar-thumb {
+    background-color: #a2a2a200;
+}
+
+.library:hover>.playlistGroup::-webkit-scrollbar-thumb {
+    background-color: #a2a2a2a2;
+}
+
+.player {
+    display: flex;
+    justify-content: space-between;
+    height: 12vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    padding: 10px 15px;
+    background-color: #000;
+}
+
+.player .left {
+    display: flex;
+}
+
+.player .left div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player .left img {
+    content: url("Posters/heather.jpg");
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.left .title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.left .title:hover {
+    text-decoration: underline;
+}
+
+.left .artist {
+    color: #a2a2a2;
+    font-size: 10px;
+    margin-top: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.left .artist:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.notliked {
+    color: #a2a2a2;
+    scale: 1.2;
+    margin-left: 20px;
+}
+
+.notliked:hover {
+    color: white;
+}
+
+.liked {
+    color: #1cc658;
+}
+
+.liked:hover {
+    color: #1cb058;
+}
+
+.picinpic {
+    color: #a2a2a2;
+    margin-left: 20px;
+}
+
+.picinpic:hover {
+    color: #fff;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    color: #a2a2a2;
+    fill: #a2a2a2;
+}
+
+.right button {
+    color: #a2a2a2;
+    margin: 0px 8px;
+}
+
+.right button:hover {
+    color: #fff;
+    fill: #fff;
+}
+
+.right input[type="range"] {
+    width: 100px;
+}
+
+.nowPlaying, .lyrics, .queue {
+    cursor: pointer;
+}
+
+.sliderContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.slider {
+    height: 5px;
+    accent-color: #fff;
+}
+
+.slider::-webkit-slider-thumb {
+    visibility: hidden;
+    max-height: 10px;
+    max-width: 10px;
+}
+
+.sliderContainer:hover>.slider::-webkit-slider-thumb,
+.sliderContainer:hover>.slider {
+    visibility: visible;
+    accent-color: #1cc658;
+}
+
+.mid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mid .controls button{
+    color: #a2a2a2;
+    margin: 0px 15px;
+}
+
+.mid .controls {
+    margin-bottom: 20px;
+}
+
+.mid .controls button .fa-backward-step,
+.mid .controls button .fa-circle-play,
+.mid .controls button .fa-forward-step {
+    scale: 1.7;
+}
+
+.mid .controls button .fa-shuffle,
+.mid .controls button .fa-repeat {
+    scale: 1.2;
+}
+
+.mid .controls button .fa-shuffle:hover,
+.mid .controls button .fa-backward-step:hover,
+.mid .controls button .fa-circle-play:hover,
+.mid .controls button .fa-forward-step:hover,
+.mid .controls button .fa-repeat:hover {
+    color: #fff;
+}
+
+.mid .controls button .fa-circle-play, .fa-circle-pause {
+    scale: 2.5;
+    color: #fff;
+}
+
+.mid #progressBar {
+    width: 500px;
+    height: 3px;
+    margin: 0px 10px;
+}
+
+.mid #progress p {
+    font-size: 12px;
+    color: #a2a2a2;
+}
+
+.main {
+    background-color: #121212;
+    width: 73vw;
+    height: 90vh;
+    margin-left: 10px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.main::-webkit-scrollbar {
+    position: absolute;
+    right: 0;
+    width: 10px;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background-color: #a2a2a200;
+}
+
+.main:hover::-webkit-scrollbar-thumb {
+    background-color: #a2a2a2a2;
+}
+
+.main .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    position: sticky;
+}
+
+.main .navbar .unavailable {
+    color: #a2a2a2;
+    border-radius: 50%;
+    margin: 0px 5px;
+    padding: 5px 8px;
+    scale: 1.2;
+    background: #12121289;
+    cursor: no-drop;
+}
+
+.main .navbar .available {
+    cursor: pointer;
+    color: #fff;
+    background: #121212;
+}
+
+.main .navbar .right button{
+    color: #000;
+    background: #fff;
+    padding: 8px;
+    border-radius: 34px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.main .navbar .right #install {
+    color: white;
+    padding: 5px 8px;
+    background-color: #00000088;
+}
+
+.main .navbar .right #install i {
+    scale: 0.9;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 3px 5px;
+    margin-right: 5px;
+}
+
+.main .navbar .right #profile {
+    overflow: hidden;
+    width: 35px;
+    height: 35px;
+    border: 5px solid #000000dd;
+    border-radius: 50%;
+}
+
+.main .navbar .right #profile img {
+    width: 10px;
+    height: 10px;
+    scale: 2.7;
+}
+
+.main .navbar .right button:hover {
+    scale: 1.05;
+}
+
+.main .hero #greetings {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+
+}
+
+.main .hero {
+    padding: 0px 10px;
+    background-image: linear-gradient(to bottom, 
+    rgb(133, 101, 129), #121212);
+}
+
+#averageImageColor-hero {
+    transition: background 1s ease-out;
+    background-blend-mode: multiply;
+}
+
+.tileContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.tile {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff1a;
+    width: 21vw;
+    height: 11vh;
+    margin: 10px 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.tile div {
+    margin-right: 15px;
+    height: 100%;
+    width: 25%;
+}
+
+.tile div img {
+    width: 100%;
+}
+
+.tile:hover {
+    background-color: #ffffff30;
+}
+
+.tile:hover::after {
+    content: '\f144';
+    font: var(--fa-font-solid);
+    font-size: 50px;
+    color: #1fdf64;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+}
+
+.episodesfor {
+    padding: 25px 30px;
+    color: #a2a2a2;
+}
+
+.episodesfor .heading {
+    font-family: 'Ubuntu';
+    font-size: 21px;
+    color: #fff;
+}
+
+.episodesfor a {
+    text-decoration: none;
+    color: #a2a2a2;
+    font-weight: bolder;
+    font-size: 14px;
+}
+
+.episodesfor a:hover {
+    text-decoration: underline;
+}
+
+.episodesfor .episodeGroup {
+    display: flex;
+    margin-top: 20px;
+}
+
+.episodesfor .episodeGroup .element {
+    display: flex;
+    flex-direction: column;
+    width: 12vw;
+    height: 35vh;
+    align-items: center;
+    padding: 12px;
+    margin: 0px 13px;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.episodesfor .episodeGroup .episodePoster {
+    width: 100%;
+    height: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.episodesfor .episodeGroup .episodePoster img {
+    width: 100%;
+}
+
+.episodesfor .episodeGroup .episodePoster .channel {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 3vw;
+    border-radius: 4px;
+}
+
+.episodesfor .episodeGroup .name {
+    padding: 15px 10px;
+    font-weight: 600;
+    width: 12vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.episodesfor .episodeGroup .about {
+    font-size: 12px;
+    padding: 0px 10px;
+}
+
+.episodesfor .episodeGroup .about i {
+    scale: 0.2;
+}
+
