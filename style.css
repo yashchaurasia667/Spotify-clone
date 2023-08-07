@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -240,6 +241,7 @@ button {
 
 .player .left {
     display: flex;
+    width: 26vw;
 }
 
 .player .left div {
@@ -249,7 +251,6 @@ button {
 }
 
 .player .left img {
-    content: url("Posters/heather.jpg");
     margin-right: 10px;
     border-radius: 5px;
 }
@@ -359,6 +360,8 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    right: 60px;
 }
 
 .mid .controls button{
@@ -405,7 +408,8 @@ button {
     color: #a2a2a2;
 }
 
-.main {
+.main, 
+.playlist-main {
     background-color: #121212;
     width: 73vw;
     height: 90vh;
@@ -414,29 +418,35 @@ button {
     overflow: auto;
 }
 
-.main::-webkit-scrollbar {
+.main::-webkit-scrollbar,
+.playlist-main::-webkit-scrollbar {
     position: absolute;
     right: 0;
     width: 10px;
 }
 
-.main::-webkit-scrollbar-thumb {
+.main::-webkit-scrollbar-thumb,
+.playlist-main::-webkit-scrollbar-thumb {
     background-color: #a2a2a200;
 }
 
-.main:hover::-webkit-scrollbar-thumb {
+.main:hover::-webkit-scrollbar-thumb,
+.playlist-main:hover::-webkit-scrollbar-thumb {
     background-color: #a2a2a2a2;
 }
 
-.main .navbar {
+.main .navbar,
+.playlist-main .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
     position: sticky;
+    top: 0;
 }
 
-.main .navbar .unavailable {
+.main .navbar .unavailable,
+.playlist-main .navbar .unavailable {
     color: #a2a2a2;
     border-radius: 50%;
     margin: 0px 5px;
@@ -446,13 +456,15 @@ button {
     cursor: no-drop;
 }
 
-.main .navbar .available {
+.main .navbar .available,
+.playlist-main .navbar .available {
     cursor: pointer;
     color: #fff;
     background: #121212;
 }
 
-.main .navbar .right button{
+.main .navbar .right button,
+.playlist-main .navbar .right button {
     color: #000;
     background: #fff;
     padding: 8px;
@@ -461,13 +473,15 @@ button {
     cursor: pointer;
 }
 
-.main .navbar .right #install {
+.main .navbar .right #install ,
+.playlist-main .navbar .right #install {
     color: white;
     padding: 5px 8px;
     background-color: #00000088;
 }
 
-.main .navbar .right #install i {
+.main .navbar .right #install i ,
+.playlist-main .navbar .right #install i {
     scale: 0.9;
     border: 2px solid white;
     border-radius: 50%;
@@ -475,7 +489,8 @@ button {
     margin-right: 5px;
 }
 
-.main .navbar .right #profile {
+.main .navbar .right #profile ,
+.playlist-main .navbar .right #profile {
     overflow: hidden;
     width: 35px;
     height: 35px;
@@ -483,17 +498,20 @@ button {
     border-radius: 50%;
 }
 
-.main .navbar .right #profile img {
+.main .navbar .right #profile img ,
+.playlist-main .navbar .right #profile img {
     width: 10px;
     height: 10px;
     scale: 2.7;
 }
 
-.main .navbar .right button:hover {
+.main .navbar .right button:hover ,
+.playlist-main .navbar .right button:hover {
     scale: 1.05;
 }
 
-.main .hero #greetings {
+.main .hero #greetings ,
+.playlist-main .hero #greetings {
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     font-weight: 900;
@@ -501,15 +519,11 @@ button {
 
 }
 
-.main .hero {
+.main .hero ,
+.playlist-main .hero {
     padding: 0px 10px;
     background-image: linear-gradient(to bottom, 
-    rgb(133, 101, 129), #121212);
-}
-
-#averageImageColor-hero {
-    transition: background 1s ease-out;
-    background-blend-mode: multiply;
+    rgb(79, 55, 68), #121212);
 }
 
 .tileContainer {
@@ -533,6 +547,7 @@ button {
     color: white;
     cursor: pointer;
     position: relative;
+    transition: background 0.3s ease-out;
 }
 
 .tile div {
@@ -595,10 +610,12 @@ button {
     align-items: center;
     padding: 12px;
     margin: 0px 13px;
+    color: #fff;
     background-color: #1c1c1c;
     border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
+    transition: background 0.2s ease-out;
 }
 
 .episodesfor .episodeGroup .episodePoster {
@@ -637,5 +654,174 @@ button {
 
 .episodesfor .episodeGroup .about i {
     scale: 0.2;
+}
+
+.episodesfor .episodeGroup .element:hover {
+    background-color: #2a2a2a;
+}
+
+.playlist-main .playlist-hero {
+    padding: 0 20px;
+}
+
+.playlist-main .playlist-hero .banner {
+    display: flex;
+    /* align-items: center; */
+}
+
+.playlist-main .playlist-hero .banner #playlist-cover {
+    border-radius: 5p;
+    width: 15vw;
+}
+
+.playlist-main .playlist-hero .banner .cover-gradient {
+    padding: 20px;
+    background-image: radial-gradient(#000000 5%,#00000000 80%);
+}
+
+.playlist-main .playlist-hero .banner .details {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    color: #fff;
+    padding-bottom: 20px;
+    font-weight: 550;
+}
+
+.playlist-main .playlist-hero .banner .details p {
+    font-size: 13px;
+}
+
+.playlist-main .playlist-hero .banner .details h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 90px;
+}
+
+.playlist-main .playlist-hero .banner .details .profile {
+    display: flex;
+    margin-top: 25px;
+}
+
+.playlist-main .playlist-hero .banner .details .profile img {
+    border-radius: 50%;
+    width: 25px;
+    margin-right: 10px;
+}
+
+.playlist-main .playlist-hero .banner .details .profile i {
+    scale: 0.3;
+}
+
+.playlist-main .playlist-play {
+    color: #1cc658;
+}
+
+.playlist-main .playlist-play i {
+    cursor: pointer;
+    margin: 10px 20px;
+}
+
+.playlist-main .playlist-play i:hover {
+    scale: 1.05;
+}
+
+.playlist-main .song-table-container .song-table {
+    color: #a2a2a2;
+    font-weight: 550;
+    font-size: 12px;
+    padding: 0px 20px;
+    padding-bottom: 50px;
+}
+
+.playlist-main .song-table-container .song-table .headings {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px 20px;
+    padding-top: 15px;
+}
+
+.playlist-main .song-table-container .song-table .headings div {
+    padding-right: 20px;
+}
+
+.playlist-main .song-table-container .song-table .headings .liked,
+.playlist-main .song-table-container .song-table .song .liked {
+    padding-right: 25px;
+}
+
+.playlist-main .song-table-container .song-table .headings .title,
+.playlist-main .song-table-container .song-table .song .title {
+    min-width: 25vw;
+}
+
+.playlist-main .song-table-container .song-table .headings .album,
+.playlist-main .song-table-container .song-table .song .album {
+    width: 18vw;
+}
+
+.playlist-main .song-table-container .song-table .song .album p {
+    width: 15vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.playlist-main .song-table-container .song-table .headings .date,
+.playlist-main .song-table-container .song-table .song .date {
+    min-width: 17vw;
+}
+
+.playlist-main .song-table-container .song-table .line {
+    height: 0.1px;
+    width: 100%;
+    background-color: #a2a2a22f;
+    margin: 10px 0px;
+    margin-bottom: 15px;
+}
+
+.playlist-main .song-table-container .song-table ol {
+    list-style-type: none;
+}
+
+.playlist-main .song-table-container .song-table .song {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px ;
+    border-radius: 5px;
+}
+
+.playlist-main .song-table-container .song-table .song div {
+    padding-right: 20px;
+    display: flex;
+}
+
+.playlist-main .song-table-container .song-table .song .title span {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.playlist-main .song-table-container .song-table .song .title .song-name {
+    color: #fff;
+    font-size: 14px;
+}
+
+.playlist-main .song-table-container .song-table .song .liked i {
+    scale: 1.4;
+    cursor: pointer;
+}
+
+.playlist-main .song-table-container .song-table .song .album:hover,
+.playlist-main .song-table-container .song-table .song .title span p:hover,
+.playlist-main .song-table-container .song-table .song .title .song-name:hover {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.playlist-main .song-table-container .song-table .song:hover {
+    background-color: #ffffff14;
 }
 
