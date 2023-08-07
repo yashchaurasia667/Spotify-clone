@@ -92,12 +92,14 @@ function trackProgress() {
     progressBar.value=0;
     song.addEventListener('timeupdate', ()=> {
         time = song.currentTime/song.duration *100;
-        let minutes = parseInt(time/60);
-        let seconds = parseInt(time%60);
+        let minutes = parseInt(parseInt(song.currentTime)/60);
+        let seconds = parseInt(parseInt(song.currentTime)%60);
         seconds = formattedNumber(seconds);
         progressBar.nextElementSibling.innerHTML = `${parseInt(song.duration/60)}:${formattedNumber(parseInt(song.duration%60))}`;
         progressBar.previousElementSibling.innerHTML = `${minutes}:${seconds}`;
         progressBar.value = time;
+        if(song.currentTime == song.duration)
+            next();
     })
     progressBar.addEventListener('change', ()=> {
         song.currentTime = progressBar.value * song.duration/100;
