@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="x-icon">
-    <title>Spotify-Web Player: Music for everyone</title>
+    <title>Spotify - Web Player: Music for everyone</title>
 </head>
 <body>
     <div class="outer">
         <div class="sideBar">
             <div class="pages">
                 <div class="home"><a href="index.html"><i class="fa-solid fa-house icon"></i> Home</a></div>
-                <div class="search" onclick="window.location.href='Search.html'"><a href="#"><i class="fa-solid fa-magnifying-glass icon"></i> Search</a></div>
+                <div class="search"><a href="Search.html"><i class="fa-solid fa-magnifying-glass icon"></i> Search</a></div>
             </div>
             <div class="library">
                 <div class="top">
@@ -39,7 +39,7 @@
                         </div>
                         <button class="recents">Recents <i class="fa-solid fa-sort-down"></i></button>
                     </div>
-                    <div class="playlist">
+                    <div class="playlist" onclick="openPlaylist(this, '.likedSongs-playlist')">
                         <img src="Covers/likedSongs.png" id="img" alt="Liked Songs">
                         <a>
                             <p class="name">Liked Songs</p>
@@ -105,6 +105,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="main">
             <div class="hero" id="averageImageColor-hero">
                 <span class="navbar" id="averageImageColor-navbar">
@@ -126,7 +127,7 @@
                         </div>
                         <p>;</p>
                     </div>
-                    <div class="tile" onmouseenter="setColor(document.getElementById('2'))" onmouseleave="colorDefault()">
+                    <div class="tile" onclick="openPlaylist(this, '.likedSongs-playlist')" onmouseenter="setColor(document.getElementById('2'))" onmouseleave="colorDefault()">
                         <div>
                             <img src="Covers/likedSongs.png" id="2">
                         </div>
@@ -198,11 +199,1297 @@
             </div>
         </div>
 
+        <div class="playlist-main likedSongs-playlist" style="display: none;">
+            <div class="playlist-hero" id="playlist-hero">
+                <div class="overlay">
+                    <span class="navbar">
+                        <div class="navButtons">
+                            <button><i class="fa-solid fa-chevron-left unavailable"></i></button>
+                            <button><i class="fa-solid fa-chevron-right unavailable"></i></button>
+                        </div>
+                        <div class="right">
+                            <button id="premium">Explore Premium</button>
+                            <button id="install"><i class="fa-solid fa-arrow-down"></i>Install App</button>
+                            <button id="profile"><img src="../../Icons/profile.jpg"></button>
+                        </div>
+                    </span>
+                    <div class="banner">
+                        <div class="cover-gradient">
+                            <img src="../../Covers/likedSongs.png" alt="cover" id="playlist-cover">
+                        </div>
+                        <div class="details">
+                            <p>Playlist</p>
+                            <h1>Liked Songs</h1>
+                            <div class="profile">
+                                <img src="../../Icons/profile.jpg" alt="">
+                                <p>
+                                    Yash
+                                    <i class="fa-solid fa-circle"></i>
+                                    492 songs
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="song-table-container" id="playlist-container">
+                <div class="playlist-play">
+                    <i class="fa-solid fa-circle-play fa-4x"></i>
+                </div>
+                <div class="song-table">
+                    <div class="headings">
+                        <div class="number">#</div>
+                        <div class="title">Title</div>
+                        <div class="album">Album</div>
+                        <div class="date">Date Added</div>
+                        <div class="liked"></div>
+                        <div class="duration"><i class="fa-regular fa-clock"></i></div>
+                    </div>
+                    <div class="line"></div>
+                    <ol>
+                        <li onclick="changePlayerDetails(this)" class="currSong">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/drunk text.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">drunk text</p>
+                                    <p class="artist">Henry Moodie</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>drunk text</p></div>
+                            <div class="date">2023-01-26</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Like We Used To.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Like We Used To</p>
+                                    <p class="artist">A Rocket To The Moon</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>On Your Side</p></div>
+                            <div class="date">2009-10-12</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Maybe My Soulmate Died.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Maybe My Soulmate Died</p>
+                                    <p class="artist">iamnotshane</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Maybe My Soulmate Died</p></div>
+                            <div class="date">2022-06-15</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/drivers license.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">drivers license</p>
+                                    <p class="artist">Olivia Rodrigo</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>SOUR</p></div>
+                            <div class="date">2021-05-21</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Thats her.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Thats her</p>
+                                    <p class="artist">Georgiou Music</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>That's her</p></div>
+                            <div class="date">2021-04-10</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Looks like a real thing  English Version.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Looks like a real thing  English Version</p>
+                                    <p class="artist">JeHwi</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Snowdrop (Original Television Soundtrack, Pt. 3)</p></div>
+                            <div class="date">2022-01-08</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Happening Again.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Happening Again</p>
+                                    <p class="artist">Katherine Li</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Happening Again</p></div>
+                            <div class="date">2022-06-15</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Someone You Loved.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Someone You Loved</p>
+                                    <p class="artist">Emma Heesters</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Someone You Loved</p></div>
+                            <div class="date">2019-08-22</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Reckless.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Reckless</p>
+                                    <p class="artist">Madison Beer</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Reckless</p></div>
+                            <div class="date">2021-06-04</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Come Inside Of My Heart.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Come Inside Of My Heart</p>
+                                    <p class="artist">IV Of Spades</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>CLAPCLAPCLAP!</p></div>
+                            <div class="date">2019-01-18</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/redesign.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">redesign</p>
+                                    <p class="artist">awfultune</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>redesign</p></div>
+                            <div class="date">2020-09-10</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Teenage Dream.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Teenage Dream</p>
+                                    <p class="artist">Stephen Dawes</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Teenage Dream</p></div>
+                            <div class="date">2022-06-02</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Just a Friend to You.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Just a Friend to You</p>
+                                    <p class="artist">Meghan Trainor</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Thank You (Deluxe Version)</p></div>
+                            <div class="date">2017-05-12</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/All In My Head.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">All In My Head</p>
+                                    <p class="artist">Tori Kelly</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Handmade Songs By Tori Kelly</p></div>
+                            <div class="date">2012</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Am I Talking Too Much.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Am I Talking Too Much</p>
+                                    <p class="artist">OSTON</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Am I Talking Too Much?</p></div>
+                            <div class="date">2021-08-06</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Snow In Venice.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Snow In Venice</p>
+                                    <p class="artist">Elizaveta</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Beatrix Runs</p></div>
+                            <div class="date">2012</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/In Too Deep.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">In Too Deep</p>
+                                    <p class="artist">Why Don't We</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>8 Letters</p></div>
+                            <div class="date">2018-08-31</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/People Watching.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">People Watching</p>
+                                    <p class="artist">Conan Gray</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Superache</p></div>
+                            <div class="date">2022-06-24</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/rocket science.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">rocket science</p>
+                                    <p class="artist">vaultboy</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>rocket science</p></div>
+                            <div class="date">2021-11-09</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/I Love You So  Acoustic.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">I Love You So  Acoustic</p>
+                                    <p class="artist">The Walters</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>I Love You So (Acoustic)</p></div>
+                            <div class="date">2021-11-19</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/I Like You More Than I Thought.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">I Like You More Than I Thought</p>
+                                    <p class="artist">Maggery</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Thoughts of You</p></div>
+                            <div class="date">2019-04-03</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/It Wont Hurt.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">It Wont Hurt</p>
+                                    <p class="artist">Kochetkovv</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>It Won't Hurt</p></div>
+                            <div class="date">2018-07-09</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/room for you.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">room for you</p>
+                                    <p class="artist">sad alex,Caleb Hearn</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>room for you</p></div>
+                            <div class="date">2022-06-21</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/could you love me while i hate myself.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">could you love me while i hate myself</p>
+                                    <p class="artist">Zeph</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>scared of everything</p></div>
+                            <div class="date">2021-10-15</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/never have i ever.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">never have i ever</p>
+                                    <p class="artist">Casey Baer</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>never have i ever</p></div>
+                            <div class="date">2022-02-11</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Nothing.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Nothing</p>
+                                    <p class="artist">Bruno Major</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>To Let A Good Thing Die</p></div>
+                            <div class="date">2020-06-05</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Baarishein.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Baarishein</p>
+                                    <p class="artist">Anuv Jain</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Baarishein</p></div>
+                            <div class="date">2018-01-12</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Alag Aasmaan.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Alag Aasmaan</p>
+                                    <p class="artist">Anuv Jain</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Alag Aasmaan</p></div>
+                            <div class="date">2020-07-31</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Another Love.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Another Love</p>
+                                    <p class="artist">Tom Odell</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Long Way Down (Deluxe)</p></div>
+                            <div class="date">2013-06-24</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Love Is a Drug.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Love Is a Drug</p>
+                                    <p class="artist">Papithbk</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Thbk.</p></div>
+                            <div class="date">2018-10-24</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Im Not Enough and Im Sorry.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Im Not Enough and Im Sorry</p>
+                                    <p class="artist">Teqkoi,Snw</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>I'm Not Enough and I'm Sorry</p></div>
+                            <div class="date">2018-10-27</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Hypotheticals.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Hypotheticals</p>
+                                    <p class="artist">Fran Vasili</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Hypotheticals</p></div>
+                            <div class="date">2022-10-28</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Tu Kahan.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Tu Kahan</p>
+                                    <p class="artist">Aditya Rikhari</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Tu Kahan</p></div>
+                            <div class="date">2020-04-03</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/All The Things She Said.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">All The Things She Said</p>
+                                    <p class="artist">t.A.T.u.</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>200 KM/H In The Wrong Lane (10th Anniversary Edition)</p></div>
+                            <div class="date">2002</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Kya Karein.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Kya Karein</p>
+                                    <p class="artist">Aditya Rikhari</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Kya Karein</p></div>
+                            <div class="date">2020-09-28</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Ek Din Aap Yun Hum Se Chin Jaenge.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Ek Din Aap Yun Hum Se Chin Jaenge</p>
+                                    <p class="artist">Ahmed Nadeem</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Ek Din Aap Yun Hum Se Chin Jaenge</p></div>
+                            <div class="date">2022-08-05</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Eyes Blue Like The Atlantic feat Subvrbs.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Eyes Blue Like The Atlantic feat Subvrbs</p>
+                                    <p class="artist">Sista Prod,Subvrbs</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Eyes Blue Like The Atlantic (feat. Subvrbs)</p></div>
+                            <div class="date">2020-07-20</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/I Really Want to Stay at Your House.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">I Really Want to Stay at Your House</p>
+                                    <p class="artist">Rosa Walton,Hallie Coggins</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Cyberpunk 2077: Radio, Vol. 2 (Original Soundtrack)</p></div>
+                            <div class="date">2020-12-18</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Lajawab 2.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Lajawab 2</p>
+                                    <p class="artist">Taimour Baig,Raffey Anwar</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Lajawab 2</p></div>
+                            <div class="date">2022-01-22</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Youngblood.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Youngblood</p>
+                                    <p class="artist">5 Seconds of Summer</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Youngblood (Deluxe)</p></div>
+                            <div class="date">2018-06-15</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Ghost Of You.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Ghost Of You</p>
+                                    <p class="artist">5 Seconds of Summer</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Youngblood (Deluxe)</p></div>
+                            <div class="date">2018-06-15</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Nandemonaiya  movie ver.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Nandemonaiya  movie ver</p>
+                                    <p class="artist">RADWIMPS</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Your Name.</p></div>
+                            <div class="date">2016-08-24</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Falling Apart.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Falling Apart</p>
+                                    <p class="artist">Michael Schulte</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Hold the Rhythm</p></div>
+                            <div class="date">2017-04-28</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/i think i wanna text u.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">i think i wanna text u</p>
+                                    <p class="artist">vaultboy</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>vaultboy EP</p></div>
+                            <div class="date">2022-01-14</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/You Are Enough.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">You Are Enough</p>
+                                    <p class="artist">Sleeping At Last</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Atlas: I</p></div>
+                            <div class="date">2014-07-08</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Sky is the Limit.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Sky is the Limit</p>
+                                    <p class="artist">Mark Ambor</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Hello World</p></div>
+                            <div class="date">2022-09-09</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/In The Stars.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">In The Stars</p>
+                                    <p class="artist">Benson Boone</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>In The Stars</p></div>
+                            <div class="date">2022-04-29</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/golden hour.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">golden hour</p>
+                                    <p class="artist">JVKE</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>this is what ____ feels like (Vol. 1-4)</p></div>
+                            <div class="date">2022-09-23</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/someone will love you better.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">someone will love you better</p>
+                                    <p class="artist">Johnny Orlando</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>all the things that could go wrong</p></div>
+                            <div class="date">2022-08-19</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Mayonaka no Door  Stay With Me.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Mayonaka no Door  Stay With Me</p>
+                                    <p class="artist">Miki Matsubara</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Miki Matsubara Best Collection</p></div>
+                            <div class="date">2008</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Dont Blame Me.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Dont Blame Me</p>
+                                    <p class="artist">Taylor Swift</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>reputation</p></div>
+                            <div class="date">2017-11-10</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Lonely Again.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Lonely Again</p>
+                                    <p class="artist">Bangers Only,Luke Chappell,Vibin Central</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Bangers Only, Vol. 1</p></div>
+                            <div class="date">2020-09-30</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Its Called Freefall.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Its Called Freefall</p>
+                                    <p class="artist">Rainbow Kitten Surprise</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>How to: Friend, Love, Freefall</p></div>
+                            <div class="date">2018-04-06</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/good 4 u.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">good 4 u</p>
+                                    <p class="artist">Olivia Rodrigo</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>SOUR</p></div>
+                            <div class="date">2021-05-21</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Moral of the Story.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Moral of the Story</p>
+                                    <p class="artist">Ashe</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Moral of the Story</p></div>
+                            <div class="date">2019-02-14</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Dancing With Your Ghost.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Dancing With Your Ghost</p>
+                                    <p class="artist">Sasha Alex Sloan</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Dancing With Your Ghost</p></div>
+                            <div class="date">2019-06-28</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Heather.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Heather</p>
+                                    <p class="artist">Conan Gray</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Kid Krow</p></div>
+                            <div class="date">2020-03-20</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Rescue Me.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Rescue Me</p>
+                                    <p class="artist">OneRepublic</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Human (Deluxe)</p></div>
+                            <div class="date">2021-08-27</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Be Alright.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Be Alright</p>
+                                    <p class="artist">Dean Lewis</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>A Place We Knew</p></div>
+                            <div class="date">2019-03-22</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Things That I Miss.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Things That I Miss</p>
+                                    <p class="artist">awfultune,Sandosius</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Peace and Quiet</p></div>
+                            <div class="date">2018-04-02</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Say You Wont Let Go.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Say You Wont Let Go</p>
+                                    <p class="artist">James Arthur</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Back from the Edge</p></div>
+                            <div class="date">2016-10-28</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Here With Me.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Here With Me</p>
+                                    <p class="artist">d4vd</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Here With Me</p></div>
+                            <div class="date">2022-09-22</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Downers At Dusk.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Downers At Dusk</p>
+                                    <p class="artist">Talha Anjum,Umair</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Open Letter</p></div>
+                            <div class="date">2023-02-18</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Love Me Back.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Love Me Back</p>
+                                    <p class="artist">Ginette Claudette</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>On To Something</p></div>
+                            <div class="date">2018-11-30</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Jane Woh Kaise Loog The.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Jane Woh Kaise Loog The</p>
+                                    <p class="artist">Hemant Kumar</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Revival Vol.5 Koi Hamdam Na Raha</p></div>
+                            <div class="date">2000-05-22</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Still into You.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Still into You</p>
+                                    <p class="artist">Paramore</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Paramore</p></div>
+                            <div class="date">2013-04-05</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Choo Lo.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Choo Lo</p>
+                                    <p class="artist">The Local Train</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Aalas Ka Pedh</p></div>
+                            <div class="date">2015-09-25</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Farq hai.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Farq hai</p>
+                                    <p class="artist">Suzonn</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Farq hai</p></div>
+                            <div class="date">2020-11-26</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/We Didnt Even Date.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">We Didnt Even Date</p>
+                                    <p class="artist">Katherine Li</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>We Didn't Even Date</p></div>
+                            <div class="date">2022-02-10</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Daylight.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Daylight</p>
+                                    <p class="artist">David Kushner</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Daylight</p></div>
+                            <div class="date">2023-04-14</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Sick of You.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Sick of You</p>
+                                    <p class="artist">Suriel Hess</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Sick of You</p></div>
+                            <div class="date">2021-02-26</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Heres Your Perfect.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Heres Your Perfect</p>
+                                    <p class="artist">Jamie Miller</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Here's Your Perfect</p></div>
+                            <div class="date">2021-04-30</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Sanctuary.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Sanctuary</p>
+                                    <p class="artist">Joji</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Nectar</p></div>
+                            <div class="date">2020-09-24</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/The Night We Met.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">The Night We Met</p>
+                                    <p class="artist">Lord Huron</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Strange Trails</p></div>
+                            <div class="date">2015-04-06</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Those Eyes.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Those Eyes</p>
+                                    <p class="artist">New West</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Those Eyes</p></div>
+                            <div class="date">2019-05-10</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Aaoge Tum Kabhi.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Aaoge Tum Kabhi</p>
+                                    <p class="artist">The Local Train</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Aalas Ka Pedh</p></div>
+                            <div class="date">2015-09-25</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                        
+                        <li onclick="changePlayerDetails(this)">
+                            <div class="song">
+                            <div class="number"></div>
+                            <div class="title"><img src="Posters/Cant Help Falling in Love.jpg" width="40px">
+                                <span>
+                                    <p class="song-name">Cant Help Falling in Love</p>
+                                    <p class="artist">Haley Reinhart</p>
+                                </span>
+                            </div>
+                            <div class="album"><p>Better</p></div>
+                            <div class="date">2016-04-29</div>
+                            <div class="liked"><i class="fa-solid fa-heart"></i></div>
+                            <div class="duration"> 3:36</div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
         <div class="player">
             <div class="left">
-                <img src="Posters/chooLo.jpg" width="60px" height="60px" alt="poster">
+                <div class="currSong-poster">
+                    <img src="Posters/Heather.jpg" width="60px" height="60px" alt="poster">
+                </div>
                 <div>
-                    <a href="#" class="title">Heather</a>
+                    <a href="#" class="title currSong-title">Heather</a>
                     <a href="#" class="artist">Conan Gray</a>
                 </div>
                 <button class="notliked">
@@ -215,13 +1502,13 @@
             <div class="mid">
                 <div class="controls">
                     <button><i class="fa-solid fa-shuffle"></i></button>
-                    <button><i class="fa-solid fa-backward-step"></i></button>
-                    <button class="play"><i class="fa-solid fa-circle-play"></i></button>
-                    <button><i class="fa-solid fa-forward-step"></i></button>
+                    <button><i class="fa-solid fa-backward-step" onclick="previous()"></i></button>
+                    <button class="player-play"><i class="fa-solid fa-circle-play"></i></button>
+                    <button><i class="fa-solid fa-forward-step" onclick="next()"></i></button>
                     <button><i class="fa-solid fa-repeat"></i></button>
                 </div>
                 <div class="sliderContainer" id="progress">
-                    <p>0:42</p>
+                    <p>0:00</p>
                     <input type="range" min="0" max="100" value="0" class="slider" id="progressBar">
                     <p>3:18</p>
                 </div>
@@ -241,12 +1528,13 @@
                 </button>
                 <div class="sliderContainer">
                     <button><i class="fa-solid fa-volume-high"></i></button>
-                    <input type="range" min="0" max="100" value="10" class="slider">
+                    <input type="range" min="0" max="100" value="100" class="slider" id="volume">
                 </div>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/499b26eec8.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
 </body>
 </html>
